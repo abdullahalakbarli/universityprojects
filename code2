@@ -1,0 +1,16 @@
+n_std = int(input()) #number of students
+python_learners = []
+for i in range(n_std):
+    student_data = input("Enter the student name and scores: ").split()
+    name = student_data[0]
+    scores = list(map(float, student_data[1:]))
+    python_learners.append([name, scores])
+required_name = input("Please write the student name you want to learn average:")
+for i in range (len(python_learners)):
+    if python_learners[i][0] == required_name:
+        average_point = sum(python_learners[i][1]) / 3
+        break
+    else:
+        continue
+average_point = round(average_point, 2)
+print(average_point)
