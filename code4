@@ -1,0 +1,18 @@
+n_std = int(input()) #number of students
+py_learners = []
+scr_brd = []  #score board
+fnl_lst = [] #final list that we need
+for i in range(n_std):
+    name = input()
+    score = float(input())
+    py_learners.append([name, score])
+    scr_brd.append(score)
+scr_brd = set(scr_brd)
+new_scr_brd = list(scr_brd)
+new_scr_brd.sort()
+for i in range(len(py_learners)):
+    if py_learners[i][1] == new_scr_brd[1]:
+        fnl_lst.append(py_learners[i][0])
+fnl_lst.sort()
+for name in fnl_lst:
+    print(name, end="\n")
