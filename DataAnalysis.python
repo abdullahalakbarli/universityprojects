@@ -1,0 +1,20 @@
+open('ixtisaslar.txt', 'w')
+df2 = pd.read_csv('ixtisaslar.csv')
+silinecek_columns_of_ixtisaslar = ['Unnamed: 0', 'Unnamed: 1']
+df2.reset_index(drop = True)
+df2 = df2.drop(silinecek_columns_of_ixtisaslar, axis = 1)
+df2.to_csv('Ixtisaslarcsv.csv', index = False)
+columns = [
+    "Unnamed: 0", "Unnamed: 1", "Unnamed: 2", "Unnamed: 3", "Unnamed: 4",
+    "Unnamed: 5", "Unnamed: 6", "Unnamed: 7", "Unnamed: 8", "Unnamed: 9",
+    "Unnamed: 10", "Unnamed: 11", "Unnamed: 12", "Unnamed: 13", "Unnamed: 14",
+    "Unnamed: 15", "Unnamed: 16", "Unnamed: 17", "Unnamed: 18", "Unnamed: 19"
+]
+ixtisaslar_qrup_analiz.columns = ixtisaslar_qrup_analiz.columns.str.strip()
+ixtisaslar_qrup_analiz = ixtisaslar_qrup_analiz.drop(columns=columns, errors='ignore')
+print(ixtisaslar_qrup_analiz.columns)
+
+ixtisaslar_qrup_analiz = ixtisaslar_qrup_analiz[ixtisaslar_qrup_analiz.index.isin(range(7, 17))] #This will keep only the rows with indices from 7 to 16, discarding all other rows
+
+ixtisaslar_qrup_analiz["Unnamed: 20"].plot(kind="pie") 
+ixtisaslar_qrup_analiz["Unnamed: 20"].plot(kind="pie", labels=ixtisaslar_qrup_analiz["Unnamed: 1"])
